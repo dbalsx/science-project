@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .dna_rna {
+      background-color: #F5F5F5;
+      padding: 30px 15px;
+    }
+    .ran_dna {
+      background-color: #F5F5F5;
+      padding: 30px 15px;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="dna_rna">
+      <legend>
+          <h3>전사 (DNA->RNA)</h3>
+      </legend>
+
+<input id='dna_input_name' onchange='printName()'/>
+<br><br>
+
+<div class="button1">
+<input type="button" value="전사" onclick="printName()">
+</div>
+
+
+<br><br>
+<div style="border:1px solid; width: 170px; height: 22px; background-color: white;">
+
+
+
+<script>
+function printName()  {
+  const dna_name = document.getElementById('dna_input_name').value;
+  
+
+  var result = []
+  var count1=0
+
+  for (var i=0; i<dna_name.length; i++){
+    if (dna_name[i] == 'A') {
+      result.push('U');
+    }
+    else if (dna_name[i] == 'T') {
+      result.push('A');
+    }
+    else if (dna_name[i] == 'C') {
+      result.push('G');
+    }
+    else if(dna_name[i] == 'G'){
+      result.push('C');
+    }
+    else {
+      count1++;
+    }
+    console.log(result);
+  }
+  if(count1>0){
+    alert("잘못된 염기 배열 입니다.");
+  }
+  document.getElementById("result").innerText = result.join("");
+}
+</script>
+
+<div id='result'></div>
+</div>
+
+<br><br>
+<hr />
+
+<div class="ran_dna">
+      <legend>
+          <h3> 역전사 (RNA->DNA)</h3>
+      </legend>
+
+<input id='dna_input_name2' onchange='printName2()'/>
+<br><br>
+
+<input type="button" value="역전사" onclick="printName2()">
+<br><br>
+
+
+<div style="border:1px solid; width: 170px; height: 22px; background-color: white;">
+
+<script>
+function printName2()  {
+  const dna_name2 = document.getElementById('dna_input_name2').value;
+  
+
+  var result2 = []
+  var count2=0
+
+  for (var i=0; i<dna_name2.length; i++){
+    if (dna_name2[i] == 'U') {
+      result2.push('A');
+    }
+    else if (dna_name2[i] == 'A') {
+      result2.push('T');
+    }
+    else if (dna_name2[i] == 'C') {
+      result2.push('G');
+    }
+    else if(dna_name2[i] == 'G'){
+      result2.push('C');
+    }
+    else {
+      count2++;
+    }
+    console.log(result2);
+  }
+
+  if(count2>0){
+    alert("잘못된 염기 배열 입니다.");
+  }
+  document.getElementById("result2").innerText = result2.join("");
+}
+</script>
+
+<div id='result2'></div>
+
+</div>
+
+</body>
+</html>
